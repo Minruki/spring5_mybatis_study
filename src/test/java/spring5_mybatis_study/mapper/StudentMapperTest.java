@@ -161,8 +161,6 @@ public class StudentMapperTest {
 	    student.setGender(Gender.FEMALE);
 	    int res = mapper.insertEnumStudent(student);
 	    Assert.assertEquals(1, res);
-	    
-	    log.debug(student.toString()); 
 	        
 	    student.setStudId(5);
 	    student.setName("test4");
@@ -172,8 +170,6 @@ public class StudentMapperTest {
 	    student.setGender(Gender.MALE);
 	    int res1 = mapper.insertEnumStudent(student);
 	    Assert.assertEquals(1, res1);
-	    
-	    log.debug(student.toString()); 
 	        
 	    mapper.deleteStudent(4);
 	    mapper.deleteStudent(5);
@@ -226,6 +222,26 @@ public class StudentMapperTest {
         maps.clear();
         list = mapper.selectAllStudentByMap(maps);
         list.stream().forEach(s->log.debug(s.toString()));
+    }
+
+    @Test
+    public void test14UpdateSetStudent(){
+        log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
+        
+        Student student = new Student();
+        student.setStudId(1);
+        student.setPhone(new PhoneNumber("987-654-3211"));
+        student.setDob(new Date());
+            
+        int result = mapper.updateSetStudent(student);
+        Assert.assertSame(1, result);
+        System.out.println();
+        
+        student.setPhone(new PhoneNumber("123-123-1234"));
+        student.setDob(new GregorianCalendar(1988, 04, 25).getTime());
+            
+        result = mapper.updateSetStudent(student);
+        Assert.assertSame(1, result);
     }
 
 }

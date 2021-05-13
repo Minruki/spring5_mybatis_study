@@ -100,9 +100,11 @@
 		</where>
 	</sql>
 	
+<!--
 	<resultMap type="Student" id="StudentGenderResult"	extends="StudentResult">
 		<result property="gender" column="gender" />
 	</resultMap> 
+-->
 
 	<select id="selectStudentByMap" parameterType="map"	resultMap="StudentResult">
 		<include refid="selectSQL" />
@@ -115,12 +117,27 @@
 	</select>
 	
 	<!-- ResultSet 처리방식의 재정의 -->
-	<select id="selectStudentForMap" parameterType="int" resultMap="StudentGenderResult">
+	<select id="selectStudentForMap" parameterType="int" resultMap="StudentResult">
 	    <include refid="selectSQL"/>
 	    <include refid="whereSQL"/>
 	</select>
 	
+	<!-- 동적 SQL set조건 -->
+	<update id="updateSetStudent" parameterType="Student">
+	    update students
+	    <set>
+	        <if test="name neq null">name=#{name},</if>
+	        <if test="email neq null">email=#{email},</if>
+	        <if test="phone neq null">phone=#{phone},</if>
+	        <if test="dob neq null">dob=#{dob},</if>
+	    </set>
+	    <include refid="whereSQL"/>
+	</update>
+	
 </mapper>
+
+
+
 
 
 

@@ -38,3 +38,35 @@ from tutors t left outer join courses c on t.tutor_id=c.tutor_id
 where t.tutor_id=1;
 
 delete from students where stud_id > 2;
+
+
+select course_id, name, description, start_date, end_date, tutor_id 
+  from courses;
+
+ select course_id, name, description, start_date, end_date, tutor_id 
+   from courses
+  where course_id = 1;
+ 
+ select course_id, name, description, start_date, end_date, tutor_id 
+   from courses
+  where name like '%java%';
+ 
+ select course_id, name, description, start_date, end_date, tutor_id 
+   from courses
+  where start_date >= '2013-02-01'; 
+ 
+  select course_id, name, description, start_date, end_date, tutor_id 
+   from courses
+  where start_date >= '2013-02-01' and end_date >= '2013-07-01';  
+ 
+  select course_id, name, description, start_date, end_date, tutor_id 
+   from courses
+  where start_date >= '2013-02-01' or end_date >= '2013-07-01';   
+ 
+ 
+select course_id, name, description, start_date, end_date, tutor_id from courses;
+
+insert couses value() () ()
+
+insert into courses(course_id, name, description, start_date, end_date, tutor_id) values;
+
