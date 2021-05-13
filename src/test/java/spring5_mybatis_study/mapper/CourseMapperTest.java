@@ -209,7 +209,7 @@ public class CourseMapperTest {
 	    log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 
 	    List<Course> tutors = new ArrayList<Course>();
-        Course course = new Course(7, "OracleXE", "database", new Date(), new Date(), 2);
+        Course course = new Course(7, "Oracle", "database", new Date(), new Date(), 2);
         tutors.add(course);
         
         Map<String, Object> map = new HashMap<String, Object>();
