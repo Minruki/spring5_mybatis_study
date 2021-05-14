@@ -69,4 +69,6 @@ select course_id, name, description, start_date, end_date, tutor_id from courses
 insert couses value() () ()
 
 insert into courses(course_id, name, description, start_date, end_date, tutor_id) values;
-
+delete
+from tutors 
+where tutor_id = 5;
